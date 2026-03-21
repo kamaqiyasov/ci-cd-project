@@ -67,7 +67,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/kamil/projects/ci-cd-project
-            git pull origin master
+            git pull origin main
             source .venv/bin/activate
             pip install -r requirements.txt
             python manage.py migrate
