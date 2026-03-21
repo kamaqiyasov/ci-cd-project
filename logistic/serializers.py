@@ -16,7 +16,6 @@ class ProductPositionSerializer(serializers.ModelSerializer):
 
 
 class StockSerializer(serializers.ModelSerializer):
-    
     positions = ProductPositionSerializer(many=True, read_only=False)
 
     class Meta:
@@ -33,7 +32,7 @@ class StockSerializer(serializers.ModelSerializer):
                     'price': position['price']
                     }
                 )
-    
+
     def create(self, validated_data):
         positions = validated_data.pop('positions')
         stock = super().create(validated_data)
